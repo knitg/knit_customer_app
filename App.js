@@ -9,6 +9,10 @@ import { registerRootComponent } from 'expo';
 import { createAppContainer } from 'react-navigation';
 import AppNavigator from './AppNavigator'
 
+/** REDUX STORE*/
+import { Provider } from 'react-redux'; 
+import store from './src/store/store';
+
 const AppContainer = createAppContainer(AppNavigator);
 export default class App extends React.Component {
   constructor(props) {
@@ -30,7 +34,9 @@ export default class App extends React.Component {
       );
     }
     return ( 
+      <Provider store={store}> 
         <AppContainer />
+      </Provider>
     );
   }
 }
